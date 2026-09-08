@@ -1,8 +1,10 @@
 # OscarWatch — improvement opportunities
 
+**Superseded.** This is a June 2026 review snapshot. Use the living backlog [`docs/codebase-improvements.md`](../docs/codebase-improvements.md) instead. Several items below are already done (PR CI, settings export/import, MutualPassFinder / ICS exporter / SettingsService tests).
+
 This is a review by Cursor not a human
 
-A codebase review snapshot (June 2026). Items are grouped by theme and roughly ordered within each section: **quick wins** first, **larger refactors** later. Severity is subjective — adjust to your roadmap.
+A codebase review snapshot (June 2026). Items are grouped by theme and roughly ordered within each section: **quick wins** first, **larger refactors** later. Severity is subjective; adjust to your roadmap.
 
 **Context:** 4 projects (`Core`, `Orbit`, `OscarWatch`, `Tests`), ~480 automated tests, Avalonia desktop app on **.NET 10**, version **0.8.4**. Rig/rotator logic is strong and well-tested; the main gaps are UI orchestration, settings ergonomics, CI, and documentation depth.
 

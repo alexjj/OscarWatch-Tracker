@@ -340,6 +340,30 @@
   <data name="A11y.SatelliteEclipse">
     <value>卫星处于地影中</value>
   </data>
+  <data name="Main.WorldMap">
+    <value>世界地图</value>
+  </data>
+  <data name="A11y.Plot.NoSatellites">
+    <value>{0}。未选择卫星。</value>
+  </data>
+  <data name="A11y.Plot.SelectWithArrows">
+    <value>{0}。{1} 颗卫星。使用方向键选择，Enter 确认。</value>
+  </data>
+  <data name="A11y.Plot.SatelliteCount">
+    <value>{0}。{1} 颗卫星。</value>
+  </data>
+  <data name="A11y.Plot.FocusedWithLookAngles">
+    <value>{0}。已聚焦 {1}。方位角 {2:F1} 度，仰角 {3:F1} 度，高度 {4:F0} 千米。</value>
+  </data>
+  <data name="A11y.Plot.FocusedBelowHorizon">
+    <value>{0}。已聚焦 {1}。高度 {2:F0} 千米，位于地平线以下。</value>
+  </data>
+  <data name="A11y.SkyPlot.TabHint">
+    <value>天空图。在此按 Tab，然后用方向键切换所选卫星。</value>
+  </data>
+  <data name="A11y.SkyPlot.AllBelowHorizon">
+    <value>所有卫星均在地平线以下</value>
+  </data>
   <data name="Main.Radio">
     <value>电台</value>
   </data>
@@ -534,8 +558,14 @@
   <data name="Menu.Passes.Sunlight">
     <value>_日照预测</value>
   </data>
+  <data name="Menu.Passes.DopplerInsights">
+    <value>多普勒过境分析</value>
+  </data>
   <data name="Menu.Rotator">
     <value>_天线旋转器</value>
+  </data>
+  <data name="Menu.Tools">
+    <value>工具(_T)</value>
   </data>
   <data name="Menu.Satellites">
     <value>_卫星</value>
@@ -593,6 +623,24 @@
   </data>
   <data name="Settings.MultiTrackOverlay.Note">
     <value>在当前轨迹后以淡线显示选中卫星的下一轨地面轨迹。</value>
+  </data>
+  <data name="Settings.MapCentre">
+    <value>地图中心经度</value>
+  </data>
+  <data name="Settings.MapCentre.Note">
+    <value>格林尼治 (0°)、台站网格或自定义经度。</value>
+  </data>
+  <data name="Settings.MapCentre.Greenwich">
+    <value>格林尼治 (0°)</value>
+  </data>
+  <data name="Settings.MapCentre.Station">
+    <value>台站网格</value>
+  </data>
+  <data name="Settings.MapCentre.Custom">
+    <value>自定义经度</value>
+  </data>
+  <data name="Settings.MapCentre.CustomLongitude">
+    <value>自定义中心经度 (°)</value>
   </data>
   <data name="Settings.Language">
     <value>语言</value>
@@ -797,6 +845,15 @@
   </data>
   <data name="Rig.FlexControlFailedDetail">
     <value>FlexRadio 卫星设置失败：{0}</value>
+  </data>
+  <data name="Rig.Ts2000SatlUnconfirmed">
+    <value>跟踪中（未确认 TS-2000 SATL；使用 FA/FB）</value>
+  </data>
+  <data name="Rig.Ts2000SatlWarningTitle">
+    <value>未确认 TS-2000 卫星模式</value>
+  </data>
+  <data name="Rig.Ts2000SatlWarningMessage">
+    <value>电台未通过 CAT (SA;) 确认 SATL。OscarWatch 将继续在 FA/FB 上进行多普勒校正，但为获得最佳效果，请在电台上按 SAT、关闭记忆模式并关闭前面板菜单，然后重新选择卫星以重试完整 SATL。TS-2000 的 CAT 说明见 设置 → 电台。</value>
   </data>
   <data name="Rig.NoComPort">
     <value>未选择 COM 端口</value>
@@ -1044,6 +1101,27 @@
   <data name="Logbook.ExportAdif.Dialog.Intro">
     <value>选择此文件是否用于上传到 Logbook of the World。LoTW 对部分卫星使用不同的名称。</value>
   </data>
+  <data name="Logbook.ExportAdif.Dialog.Scope.All">
+    <value>日志中的全部 QSO</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.Scope.DateRange">
+    <value>UTC 日期范围内的 QSO</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.FromUtc">
+    <value>起始 (UTC)</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.ToUtc">
+    <value>结束 (UTC)</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.CountOne">
+    <value>将导出 1 条 QSO。</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.CountMany">
+    <value>将导出 {0} 条 QSO。</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.CountNone">
+    <value>没有符合此导出范围的 QSO。</value>
+  </data>
   <data name="Logbook.ExportAdif.Dialog.ForLotw">
     <value>为 LoTW 重新映射卫星名称</value>
   </data>
@@ -1082,6 +1160,18 @@
   </data>
   <data name="Logbook.Status.QsoCountMany">
     <value>{0} — {1} 条 QSO</value>
+  </data>
+  <data name="Logbook.Status.ExportedOne">
+    <value>已将 1 条 QSO 导出为 ADIF。</value>
+  </data>
+  <data name="Logbook.Status.ExportedMany">
+    <value>已将 {0} 条 QSO 导出为 ADIF。</value>
+  </data>
+  <data name="Logbook.Status.ExportedOneRange">
+    <value>已将 1 条 QSO 导出为 ADIF（{0} UTC）。</value>
+  </data>
+  <data name="Logbook.Status.ExportedManyRange">
+    <value>已将 {0} 条 QSO 导出为 ADIF（{1} UTC）。</value>
   </data>
   <data name="Logbook.CloudlogStatus.Pending">
     <value>待上传</value>
@@ -1887,6 +1977,9 @@
   <data name="Settings.Station.GridSquare">
     <value>梅登黑德网格</value>
   </data>
+  <data name="Settings.Station.GridSquareNote">
+    <value>从字段（IO）起最多 8 个大写字符的定位符。若在网格线上，请用逗号分隔方格（例如 IO77,IO87）。</value>
+  </data>
   <data name="Settings.Station.Altitude">
     <value>海拔高度（米）</value>
   </data>
@@ -2244,6 +2337,27 @@
   <data name="Settings.Radio.FlexHint">
     <value>Pick a discovered radio or enter the IP manually (TCP port 4992). OscarWatch connects directly to the radio over the SmartSDR TCP/IP API (not by automating SmartSDR for Windows), enables full duplex, and drives separate RX/TX slices for Doppler. Use the antenna port map below when transverters use different RX A/RX B or ANT/XVTR paths per band. Dual-SCU models are required for true full duplex (e.g. 8600/8600M; also 6600/6700).</value>
   </data>
+  <data name="Settings.Radio.FlexAntennaPorts">
+    <value>按波段的天线端口</value>
+  </data>
+  <data name="Settings.Radio.FlexAntennaPortsHint">
+    <value>在 U/V ↔ V/U 卫星之间切换时，OscarWatch 会根据下行和上行波段设置电台的 RX/TX 端口（在聚焦卫星或过境准备时，而不仅是卫星位于地平线以上时）。“保持不变”会保留电台当前端口。RX A 和 RX B 仅用于接收；请按接线将 TX 映射到 ANT 或 XVTR。</value>
+  </data>
+  <data name="Settings.Radio.FlexAntennaLeaveUnchanged">
+    <value>保持不变</value>
+  </data>
+  <data name="Settings.Radio.FlexVhfRxAnt">
+    <value>VHF 接收（2 米）</value>
+  </data>
+  <data name="Settings.Radio.FlexUhfRxAnt">
+    <value>UHF 接收（70 厘米+）</value>
+  </data>
+  <data name="Settings.Radio.FlexVhfTxAnt">
+    <value>VHF 发射（2 米）</value>
+  </data>
+  <data name="Settings.Radio.FlexUhfTxAnt">
+    <value>UHF 发射（70 厘米+）</value>
+  </data>
   <data name="Settings.Radio.FlexDuplexWarning">
     <value>This model may not support full duplex (single SCU). Satellite use typically needs a dual-SCU Flex such as an 8600/8600M (or a dual-SCU 6000-series radio) with suitable isolation or transverters.</value>
   </data>
@@ -2549,6 +2663,9 @@
   </data>
   <data name="Settings.Recording.Unavailable">
     <value>此系统不支持音频录制。</value>
+  </data>
+  <data name="Settings.Recording.DevicesLoading">
+    <value>正在加载音频设备…</value>
   </data>
   <data name="Settings.Recording.SelectDeviceFirst">
     <value>首先选择输入设备。</value>
@@ -3528,6 +3645,9 @@
   <data name="DbMerge.NewSatellites">
     <value>新卫星</value>
   </data>
+  <data name="DbMerge.NoradIdBackfills">
+    <value>NORAD 目录编号</value>
+  </data>
   <data name="DbMerge.NewModes">
     <value>新转发器模式</value>
   </data>
@@ -3564,6 +3684,9 @@
   <data name="DbMerge.Intro.Remote">
     <value>默认会选中新条目。对于冲突项，请确认您的本地副本，或选择已发布的版本。</value>
   </data>
+  <data name="DbMerge.Intro.NoradIds">
+    <value>这些目录编号将添加到本地数据库中尚无编号的卫星。点击“应用所选项”进行更新。</value>
+  </data>
   <data name="DbMerge.Summary.Matches">
     <value>您的转发器数据库与 {0} 匹配。</value>
   </data>
@@ -3585,6 +3708,12 @@
   <data name="DbMerge.Summary.ManyConflicts">
     <value>{0} 个冲突</value>
   </data>
+  <data name="DbMerge.Summary.OneNoradId">
+    <value>{0} 个 NORAD 目录编号</value>
+  </data>
+  <data name="DbMerge.Summary.ManyNoradIds">
+    <value>{0} 个 NORAD 目录编号</value>
+  </data>
   <data name="DbMerge.Summary.FromSuffix">
     <value>来自 {0}。</value>
   </data>
@@ -3596,6 +3725,9 @@
   </data>
   <data name="DbMerge.Item.ModeLine">
     <value>{0}·{1}</value>
+  </data>
+  <data name="DbMerge.Item.NoradIdLine">
+    <value>{0} → {1}</value>
   </data>
   <data name="DbAdd.Title">
     <value>添加卫星</value>

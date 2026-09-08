@@ -558,8 +558,14 @@
   <data name="Menu.Passes.Sunlight">
     <value>_Predicción de iluminación solar</value>
   </data>
+  <data name="Menu.Passes.DopplerInsights">
+    <value>Análisis del pase Doppler</value>
+  </data>
   <data name="Menu.Rotator">
     <value>_Rotor</value>
+  </data>
+  <data name="Menu.Tools">
+    <value>_Herramientas</value>
   </data>
   <data name="Menu.Satellites">
     <value>_Satélites</value>
@@ -617,6 +623,24 @@
   </data>
   <data name="Settings.MultiTrackOverlay.Note">
     <value>Trayectoria atenuada de la siguiente órbita detrás del satélite seleccionado.</value>
+  </data>
+  <data name="Settings.MapCentre">
+    <value>Longitud del centro del mapa</value>
+  </data>
+  <data name="Settings.MapCentre.Note">
+    <value>Greenwich (0°), localizador de la estación o una longitud personalizada.</value>
+  </data>
+  <data name="Settings.MapCentre.Greenwich">
+    <value>Greenwich (0°)</value>
+  </data>
+  <data name="Settings.MapCentre.Station">
+    <value>Localizador de la estación</value>
+  </data>
+  <data name="Settings.MapCentre.Custom">
+    <value>Longitud personalizada</value>
+  </data>
+  <data name="Settings.MapCentre.CustomLongitude">
+    <value>Longitud central personalizada (°)</value>
   </data>
   <data name="Settings.Language">
     <value>Idioma</value>
@@ -821,6 +845,15 @@
   </data>
   <data name="Rig.FlexControlFailedDetail">
     <value>Error en la configuración satelital de FlexRadio: {0}</value>
+  </data>
+  <data name="Rig.Ts2000SatlUnconfirmed">
+    <value>Seguimiento (SATL del TS-2000 no confirmado; se usa FA/FB)</value>
+  </data>
+  <data name="Rig.Ts2000SatlWarningTitle">
+    <value>Modo satélite del TS-2000 no confirmado</value>
+  </data>
+  <data name="Rig.Ts2000SatlWarningMessage">
+    <value>La radio no confirmó SATL por CAT (SA;). OscarWatch seguirá corrigiendo Doppler en FA/FB, pero para el mejor resultado pulse SAT en la radio, desactive el modo memoria, cierre cualquier menú del panel frontal y vuelva a seleccionar el satélite para reintentar SATL completo. Consulte Configuración → Radio para la nota CAT del TS-2000.</value>
   </data>
   <data name="Rig.NoComPort">
     <value>No se ha seleccionado ningún puerto COM</value>
@@ -1068,6 +1101,27 @@
   <data name="Logbook.ExportAdif.Dialog.Intro">
     <value>Indique si este archivo es para subir a Logbook of the World. LoTW usa nombres de satélite distintos en algunas naves.</value>
   </data>
+  <data name="Logbook.ExportAdif.Dialog.Scope.All">
+    <value>Todos los QSO del libro</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.Scope.DateRange">
+    <value>QSO en un intervalo de fechas UTC</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.FromUtc">
+    <value>Desde (UTC)</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.ToUtc">
+    <value>Hasta (UTC)</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.CountOne">
+    <value>Se exportará 1 QSO.</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.CountMany">
+    <value>Se exportarán {0} QSO.</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.CountNone">
+    <value>Ningún QSO coincide con este intervalo de exportación.</value>
+  </data>
   <data name="Logbook.ExportAdif.Dialog.ForLotw">
     <value>Remapear nombres de satélite para LoTW</value>
   </data>
@@ -1106,6 +1160,18 @@
   </data>
   <data name="Logbook.Status.QsoCountMany">
     <value>{0} — {1} QSOs</value>
+  </data>
+  <data name="Logbook.Status.ExportedOne">
+    <value>Se exportó 1 QSO a ADIF.</value>
+  </data>
+  <data name="Logbook.Status.ExportedMany">
+    <value>Se exportaron {0} QSO a ADIF.</value>
+  </data>
+  <data name="Logbook.Status.ExportedOneRange">
+    <value>Se exportó 1 QSO a ADIF ({0} UTC).</value>
+  </data>
+  <data name="Logbook.Status.ExportedManyRange">
+    <value>Se exportaron {0} QSO a ADIF ({1} UTC).</value>
   </data>
   <data name="Logbook.CloudlogStatus.Pending">
     <value>Pendiente</value>
@@ -1911,6 +1977,9 @@
   <data name="Settings.Station.GridSquare">
     <value>Localizador Maidenhead</value>
   </data>
+  <data name="Settings.Station.GridSquareNote">
+    <value>Localizador en mayúsculas desde el campo (IO) hasta 8 caracteres. En una línea de cuadrícula, separe los cuadrados con comas (p. ej. IO77,IO87).</value>
+  </data>
   <data name="Settings.Station.Altitude">
     <value>Altitud sobre el nivel del mar (m)</value>
   </data>
@@ -2268,6 +2337,27 @@
   <data name="Settings.Radio.FlexHint">
     <value>Pick a discovered radio or enter the IP manually (TCP port 4992). OscarWatch connects directly to the radio over the SmartSDR TCP/IP API (not by automating SmartSDR for Windows), enables full duplex, and drives separate RX/TX slices for Doppler. Use the antenna port map below when transverters use different RX A/RX B or ANT/XVTR paths per band. Dual-SCU models are required for true full duplex (e.g. 8600/8600M; also 6600/6700).</value>
   </data>
+  <data name="Settings.Radio.FlexAntennaPorts">
+    <value>Puertos de antena por banda</value>
+  </data>
+  <data name="Settings.Radio.FlexAntennaPortsHint">
+    <value>Al cambiar entre satélites U/V ↔ V/U, OscarWatch asigna los puertos RX/TX según las bandas de bajada y subida (al enfocar el satélite o al preparar el pase, no solo cuando está sobre el horizonte). Dejar sin cambios conserva el puerto actual de la radio. RX A y RX B son solo recepción; asigne TX a ANT o XVTR según el cableado.</value>
+  </data>
+  <data name="Settings.Radio.FlexAntennaLeaveUnchanged">
+    <value>Dejar sin cambios</value>
+  </data>
+  <data name="Settings.Radio.FlexVhfRxAnt">
+    <value>Recepción VHF (2 m)</value>
+  </data>
+  <data name="Settings.Radio.FlexUhfRxAnt">
+    <value>Recepción UHF (70 cm+)</value>
+  </data>
+  <data name="Settings.Radio.FlexVhfTxAnt">
+    <value>Transmisión VHF (2 m)</value>
+  </data>
+  <data name="Settings.Radio.FlexUhfTxAnt">
+    <value>Transmisión UHF (70 cm+)</value>
+  </data>
   <data name="Settings.Radio.FlexDuplexWarning">
     <value>This model may not support full duplex (single SCU). Satellite use typically needs a dual-SCU Flex such as an 8600/8600M (or a dual-SCU 6000-series radio) with suitable isolation or transverters.</value>
   </data>
@@ -2573,6 +2663,9 @@
   </data>
   <data name="Settings.Recording.Unavailable">
     <value>La grabación de audio no está disponible en este sistema.</value>
+  </data>
+  <data name="Settings.Recording.DevicesLoading">
+    <value>Cargando dispositivos de audio…</value>
   </data>
   <data name="Settings.Recording.SelectDeviceFirst">
     <value>Selecciona primero un dispositivo de entrada.</value>
@@ -3552,6 +3645,9 @@
   <data name="DbMerge.NewSatellites">
     <value>Satélites nuevos</value>
   </data>
+  <data name="DbMerge.NoradIdBackfills">
+    <value>Identificadores de catálogo NORAD</value>
+  </data>
   <data name="DbMerge.NewModes">
     <value>Modos de transpondedor nuevos</value>
   </data>
@@ -3588,6 +3684,9 @@
   <data name="DbMerge.Intro.Remote">
     <value>Las entradas nuevas están seleccionadas por defecto. En conflictos, confirma tu copia local o elige la versión publicada.</value>
   </data>
+  <data name="DbMerge.Intro.NoradIds">
+    <value>Estos números de catálogo se añadirán a los satélites de su base de datos local que aún no tengan uno. Pulse Aplicar seleccionados para actualizar.</value>
+  </data>
   <data name="DbMerge.Summary.Matches">
     <value>Tu base de datos de transpondedores coincide con {0}.</value>
   </data>
@@ -3609,6 +3708,12 @@
   <data name="DbMerge.Summary.ManyConflicts">
     <value>{0} conflictos</value>
   </data>
+  <data name="DbMerge.Summary.OneNoradId">
+    <value>{0} identificador de catálogo NORAD</value>
+  </data>
+  <data name="DbMerge.Summary.ManyNoradIds">
+    <value>{0} identificadores de catálogo NORAD</value>
+  </data>
   <data name="DbMerge.Summary.FromSuffix">
     <value> de {0}.</value>
   </data>
@@ -3620,6 +3725,9 @@
   </data>
   <data name="DbMerge.Item.ModeLine">
     <value>{0} • {1}</value>
+  </data>
+  <data name="DbMerge.Item.NoradIdLine">
+    <value>{0} → {1}</value>
   </data>
   <data name="DbAdd.Title">
     <value>Añadir satélite</value>

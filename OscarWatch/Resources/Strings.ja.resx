@@ -4,6 +4,42 @@
   <resheader name="version">2.0</resheader>
   <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</resheader>
   <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</resheader>
+  <data name="About.Copyright">
+    <value>Copyright © 2025–2026 Peter Goodhall (MM9SQL)</value>
+  </data>
+  <data name="About.Description">
+    <value>アマチュア無線オペレーター向けのデスクトップ衛星追跡。パス予報、ドップラー補正付き CAT 制御、ローテーター追跡、OscarWatch 衛星データベースのトランスポンダモードに対応します。</value>
+  </data>
+  <data name="About.DonateNote">
+    <value>寄付される場合は、お礼ができるようコールサインを Peter までお知らせください。</value>
+  </data>
+  <data name="About.Github">
+    <value>github.com/magicbug/OscarWatch-Tracker</value>
+  </data>
+  <data name="About.License">
+    <value>GNU Affero General Public License v3.0 以降（AGPL-3.0-or-later）でライセンスされています。ソースリポジトリの LICENSE.md を参照してください。</value>
+  </data>
+  <data name="About.PayPal">
+    <value>PayPal</value>
+  </data>
+  <data name="About.SponsorGithub">
+    <value>GitHub でスポンサーする</value>
+  </data>
+  <data name="About.SupportIntro">
+    <value>OscarWatch は無料のオープンソースです。役に立ったら、開発の継続を支援できます:</value>
+  </data>
+  <data name="About.Supporters">
+    <value>サポーター</value>
+  </data>
+  <data name="About.Title">
+    <value>OscarWatch について</value>
+  </data>
+  <data name="About.TleSource">
+    <value>TLE カタログ: tle.oscarwatch.org</value>
+  </data>
+  <data name="App.Title">
+    <value>OscarWatch</value>
+  </data>
   <data name="Common.Cancel">
     <value>キャンセル</value>
   </data>
@@ -19,6 +55,9 @@
   <data name="Common.Copy">
     <value>コピー</value>
   </data>
+  <data name="Common.Delete">
+    <value>削除</value>
+  </data>
   <data name="Common.Ok">
     <value>OK</value>
   </data>
@@ -30,6 +69,9 @@
   </data>
   <data name="Main.Eclipse">
     <value>食</value>
+  </data>
+  <data name="Main.El">
+    <value>  ·  El </value>
   </data>
   <data name="Main.Elevation.BelowHorizon">
     <value>地平線下</value>
@@ -280,17 +322,59 @@
   <data name="A11y.SatelliteEclipse">
     <value>衛星は食中</value>
   </data>
+  <data name="Main.WorldMap">
+    <value>世界地図</value>
+  </data>
+  <data name="A11y.Plot.NoSatellites">
+    <value>{0}。衛星が選択されていません。</value>
+  </data>
+  <data name="A11y.Plot.SelectWithArrows">
+    <value>{0}。衛星 {1} 機。矢印キーで選択し、Enter で確定します。</value>
+  </data>
+  <data name="A11y.Plot.SatelliteCount">
+    <value>{0}。衛星 {1} 機。</value>
+  </data>
+  <data name="A11y.Plot.FocusedWithLookAngles">
+    <value>{0}。フォーカス {1}。方位角 {2:F1} 度、仰角 {3:F1} 度、高度 {4:F0} キロメートル。</value>
+  </data>
+  <data name="A11y.Plot.FocusedBelowHorizon">
+    <value>{0}。フォーカス {1}。高度 {2:F0} キロメートル、地平線下。</value>
+  </data>
+  <data name="A11y.SkyPlot.TabHint">
+    <value>スカイプロット。ここを Tab で選び、矢印キーで衛星を切り替えます。</value>
+  </data>
+  <data name="A11y.SkyPlot.AllBelowHorizon">
+    <value>すべての衛星が地平線下</value>
+  </data>
   <data name="Main.Radio">
     <value>無線機</value>
   </data>
   <data name="Main.Radio.CatPause">
     <value>CAT一時停止</value>
   </data>
+  <data name="Main.Radio.CatPauseTip">
+    <value>周波数更新の送信を止めて、手動でチューニングできるようにします。</value>
+  </data>
   <data name="Main.Radio.CatResume">
     <value>CAT再開</value>
   </data>
+  <data name="Main.Radio.Rx">
+    <value>RX </value>
+  </data>
+  <data name="Main.Radio.Tx">
+    <value>TX </value>
+  </data>
+  <data name="Main.Range">
+    <value>距離 </value>
+  </data>
   <data name="Main.Rotator">
     <value>ローテーター</value>
+  </data>
+  <data name="Main.Rotator.Az">
+    <value>Az</value>
+  </data>
+  <data name="Main.Rotator.El">
+    <value>El</value>
   </data>
   <data name="Main.Rotator.Park">
     <value>ローテーターをパーク</value>
@@ -456,8 +540,14 @@
   <data name="Menu.Passes.Sunlight">
     <value>日照予測(_S)</value>
   </data>
+  <data name="Menu.Passes.DopplerInsights">
+    <value>ドップラーパス分析</value>
+  </data>
   <data name="Menu.Rotator">
     <value>ローテーター(_R)</value>
+  </data>
+  <data name="Menu.Tools">
+    <value>ツール(_T)</value>
   </data>
   <data name="Menu.Satellites">
     <value>衛星(_S)</value>
@@ -503,6 +593,24 @@
   </data>
   <data name="Settings.MultiTrackOverlay.Note">
     <value>選択中の衛星の次の軌道を、現在の軌道の後ろに薄く表示します。</value>
+  </data>
+  <data name="Settings.MapCentre">
+    <value>地図中心経度</value>
+  </data>
+  <data name="Settings.MapCentre.Note">
+    <value>グリニッジ (0°)、局のグリッドスクエア、または任意の経度。</value>
+  </data>
+  <data name="Settings.MapCentre.Greenwich">
+    <value>グリニッジ (0°)</value>
+  </data>
+  <data name="Settings.MapCentre.Station">
+    <value>局のグリッドスクエア</value>
+  </data>
+  <data name="Settings.MapCentre.Custom">
+    <value>任意の経度</value>
+  </data>
+  <data name="Settings.MapCentre.CustomLongitude">
+    <value>任意の中心経度 (°)</value>
   </data>
   <data name="Settings.Language">
     <value>言語</value>
@@ -648,6 +756,9 @@
   <data name="Status.TleCached">
     <value>TLE キャッシュ ({0})</value>
   </data>
+  <data name="Status.TleNotLoaded">
+    <value>TLE 未読み込み</value>
+  </data>
   <data name="Status.TleNotLoadedShort">
     <value>TLE 未読み込み</value>
   </data>
@@ -674,6 +785,15 @@
   </data>
   <data name="Rig.FlexControlFailedDetail">
     <value>FlexRadioの衛星設定に失敗しました: {0}</value>
+  </data>
+  <data name="Rig.Ts2000SatlUnconfirmed">
+    <value>追跡中（TS-2000 の SATL 未確認。FA/FB を使用）</value>
+  </data>
+  <data name="Rig.Ts2000SatlWarningTitle">
+    <value>TS-2000 の衛星モードが確認できません</value>
+  </data>
+  <data name="Rig.Ts2000SatlWarningMessage">
+    <value>無線機が CAT (SA;) で SATL を確認しませんでした。OscarWatch は FA/FB でドップラー補正を続けますが、最良の結果には無線機で SAT を押し、メモリーモードをオフにし、前面メニューを閉じてから衛星を再選択して SATL を再試行してください。TS-2000 の CAT ヒントは 設定 → 無線機 を参照してください。</value>
   </data>
   <data name="Rig.NoComPort">
     <value>COMポート未選択</value>
@@ -995,6 +1115,9 @@
   </data>
   <data name="Settings.Station.GridSquare">
     <value>メイデンヘッドグリッド</value>
+  </data>
+  <data name="Settings.Station.GridSquareNote">
+    <value>フィールド（IO）から最大 8 文字の大文字ロケーター。グリッド境界ではカンマで区切ります（例: IO77,IO87）。</value>
   </data>
   <data name="Settings.Station.Altitude">
     <value>標高 ASL (m)</value>
@@ -1356,6 +1479,27 @@
   <data name="Settings.Radio.FlexHint">
     <value>Pick a discovered radio or enter the IP manually (TCP port 4992). OscarWatch connects directly to the radio over the SmartSDR TCP/IP API (not by automating SmartSDR for Windows), enables full duplex, and drives separate RX/TX slices for Doppler. Use the antenna port map below when transverters use different RX A/RX B or ANT/XVTR paths per band. Dual-SCU models are required for true full duplex (e.g. 8600/8600M; also 6600/6700).</value>
   </data>
+  <data name="Settings.Radio.FlexAntennaPorts">
+    <value>バンド別アンテナポート</value>
+  </data>
+  <data name="Settings.Radio.FlexAntennaPortsHint">
+    <value>U/V ↔ V/U の衛星を切り替えるとき、OscarWatch はダウンリンク／アップリンク帯から無線機の RX/TX ポートを設定します（衛星フォーカス／パス準備時。地平線上のときだけではありません）。「変更しない」は無線機の現在のポートを保ちます。RX A と RX B は受信専用です。TX は配線に合わせて ANT または XVTR に割り当ててください。</value>
+  </data>
+  <data name="Settings.Radio.FlexAntennaLeaveUnchanged">
+    <value>変更しない</value>
+  </data>
+  <data name="Settings.Radio.FlexVhfRxAnt">
+    <value>VHF 受信 (2 m)</value>
+  </data>
+  <data name="Settings.Radio.FlexUhfRxAnt">
+    <value>UHF 受信 (70 cm+)</value>
+  </data>
+  <data name="Settings.Radio.FlexVhfTxAnt">
+    <value>VHF 送信 (2 m)</value>
+  </data>
+  <data name="Settings.Radio.FlexUhfTxAnt">
+    <value>UHF 送信 (70 cm+)</value>
+  </data>
   <data name="Settings.Radio.FlexDuplexWarning">
     <value>This model may not support full duplex (single SCU). Satellite use typically needs a dual-SCU Flex such as an 8600/8600M (or a dual-SCU 6000-series radio) with suitable isolation or transverters.</value>
   </data>
@@ -1661,6 +1805,9 @@
   </data>
   <data name="Settings.Recording.Unavailable">
     <value>このシステムでは音声録音を利用できません。</value>
+  </data>
+  <data name="Settings.Recording.DevicesLoading">
+    <value>オーディオデバイスを読み込み中…</value>
   </data>
   <data name="Settings.Recording.SelectDeviceFirst">
     <value>先に入力デバイスを選択してください。</value>
@@ -2238,6 +2385,27 @@
   <data name="Logbook.ExportAdif.Dialog.Intro">
     <value>Logbook of the World へのアップロード用かどうかを選択してください。LoTW では一部の衛星で異なる名称を使用します。</value>
   </data>
+  <data name="Logbook.ExportAdif.Dialog.Scope.All">
+    <value>ログブック内のすべての QSO</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.Scope.DateRange">
+    <value>UTC 日付範囲の QSO</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.FromUtc">
+    <value>開始 (UTC)</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.ToUtc">
+    <value>終了 (UTC)</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.CountOne">
+    <value>1 件の QSO をエクスポートします。</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.CountMany">
+    <value>{0} 件の QSO をエクスポートします。</value>
+  </data>
+  <data name="Logbook.ExportAdif.Dialog.CountNone">
+    <value>このエクスポート範囲に一致する QSO はありません。</value>
+  </data>
   <data name="Logbook.ExportAdif.Dialog.ForLotw">
     <value>LoTW 用に衛星名を変換する</value>
   </data>
@@ -2276,6 +2444,18 @@
   </data>
   <data name="Logbook.Status.QsoCountMany">
     <value>{0} — QSO {1}件</value>
+  </data>
+  <data name="Logbook.Status.ExportedOne">
+    <value>1 件の QSO を ADIF にエクスポートしました。</value>
+  </data>
+  <data name="Logbook.Status.ExportedMany">
+    <value>{0} 件の QSO を ADIF にエクスポートしました。</value>
+  </data>
+  <data name="Logbook.Status.ExportedOneRange">
+    <value>1 件の QSO を ADIF にエクスポートしました（{0} UTC）。</value>
+  </data>
+  <data name="Logbook.Status.ExportedManyRange">
+    <value>{0} 件の QSO を ADIF にエクスポートしました（{1} UTC）。</value>
   </data>
   <data name="Logbook.CloudlogStatus.Pending">
     <value>保留</value>
@@ -2826,6 +3006,9 @@
   <data name="DopplerInsights.Phase.Summary">
     <value>ダウンリンク誤差 p95 {0} Hz · CAT書き込み {1}% · ピークスルー {2} Hz/s · 最大仰角 {3}°</value>
   </data>
+  <data name="Window.RotatorManual.Title">
+    <value>手動ローテーター操作</value>
+  </data>
   <data name="Window.Sunlight.Title">
     <value>日照予測</value>
   </data>
@@ -3252,8 +3435,17 @@
   <data name="Common.Add">
     <value>追加</value>
   </data>
+  <data name="Common.Browse">
+    <value>参照…</value>
+  </data>
   <data name="Common.Show">
     <value>表示</value>
+  </data>
+  <data name="Main.Alt">
+    <value>  ·  Alt </value>
+  </data>
+  <data name="Main.Az">
+    <value>Az </value>
   </data>
   <data name="DbEditor.Intro">
     <value>衛星のトランスポンダモード（周波数は kHz）を管理します。ユーザー AppData フォルダに保存されます。</value>
@@ -3450,6 +3642,9 @@
   <data name="DbMerge.NewSatellites">
     <value>新しい衛星</value>
   </data>
+  <data name="DbMerge.NoradIdBackfills">
+    <value>NORAD カタログ ID</value>
+  </data>
   <data name="DbMerge.NewModes">
     <value>新しいトランスポンダモード</value>
   </data>
@@ -3486,6 +3681,9 @@
   <data name="DbMerge.Intro.Remote">
     <value>新規項目は既定で選択されています。競合はローカルの内容を確認するか、公開版を選んでください。</value>
   </data>
+  <data name="DbMerge.Intro.NoradIds">
+    <value>これらのカタログ番号は、まだ番号がないローカルデータベースの衛星に追加されます。更新するには「選択を適用」をクリックしてください。</value>
+  </data>
   <data name="DbMerge.Summary.Matches">
     <value>トランスポンダデータベースは {0} と一致しています。</value>
   </data>
@@ -3507,6 +3705,12 @@
   <data name="DbMerge.Summary.ManyConflicts">
     <value>競合 {0} 件</value>
   </data>
+  <data name="DbMerge.Summary.OneNoradId">
+    <value>NORAD カタログ ID {0} 件</value>
+  </data>
+  <data name="DbMerge.Summary.ManyNoradIds">
+    <value>NORAD カタログ ID {0} 件</value>
+  </data>
   <data name="DbMerge.Summary.FromSuffix">
     <value>（{0} より）。</value>
   </data>
@@ -3518,6 +3722,9 @@
   </data>
   <data name="DbMerge.Item.ModeLine">
     <value>{0} · {1}</value>
+  </data>
+  <data name="DbMerge.Item.NoradIdLine">
+    <value>{0} → {1}</value>
   </data>
   <data name="DbAdd.Title">
     <value>衛星を追加</value>
