@@ -215,13 +215,17 @@
         <li>Check start/stop elevations: the satellite must rise through the start elevation while selected.</li>
         <li>On <strong>Linux</strong>, ensure PulseAudio or ALSA is running (<code>libasound2</code> on Debian/Ubuntu).</li>
         <li>On <strong>macOS</strong>, see <a href="macos-install.html">macOS install</a> if <code>libportaudio.dylib</code> is blocked; grant microphone permission when prompted.</li>
-        <li>Recordings save to <code>%AppData%\OscarWatch\recordings\</code> unless you chose another folder.</li>
+        <li>Recordings save to <code>%AppData%\OscarWatch\recordings\</code> unless you chose another folder.
+          Audio files are not auto-deleted; remove old clips yourself if the folder grows large.</li>
       </ul>
 
       <h2>Logs</h2>
       <p>
         <strong>Help → Open logs folder</strong> opens <code>%AppData%\OscarWatch\logs\</code>.
         Log files help diagnose CAT and rotator errors. API keys are not written to logs.
+        Daily <code>oscarwatch-*.log</code> files are retained for <strong>14 days</strong>.
+        Optional Doppler pass CSVs under <code>%AppData%\OscarWatch\doppler-logs\</code> use the same
+        <strong>14-day</strong> retention (see <a href="doppler-pass-insights.html">Doppler pass insights</a>).
       </p>
 
       <h2>Still stuck?</h2>
