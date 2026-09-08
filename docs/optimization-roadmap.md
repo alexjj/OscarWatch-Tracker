@@ -1,129 +1,51 @@
 # OscarWatch Performance Optimization Roadmap
 
-## Phase 1: Quick Wins (1-2 days each)
-**High impact, low complexity optimizations**
+## Goals (live tracking sessions)
 
-### Week 1
-1. **`opt/tracking-orchestrator-remove-satellite`** ⚡ 
-   - Replace LINQ with in-place removal
-   - **Effort**: 2-3 hours
-   - **Impact**: High (10-20% allocation reduction)
+- Cut unnecessary UI paints on the 4 Hz map / 1 Hz timeline paths
+- Cut duplicate SGP4 work in the 250 ms live loop and 48 h pass scan
+- Keep tracking accuracy identical
+- Do **not** pursue snapshot or track-state pooling (see rejected PRs #112 / #118)
 
-2. **`opt/sun-position-caching`** ⭐
-   - Cache sun position for 1-minute intervals  
-   - **Effort**: 4-6 hours
-   - **Impact**: Very High (15-25% CPU reduction)
+## Phase A: Live UI (highest continuous CPU)
 
-3. **`opt/timeline-smart-invalidation`** 🎯
-   - Replace timer-based invalidation with dirty flagging
-   - **Effort**: 6-8 hours  
-   - **Impact**: Very High (30-50% rendering reduction)
+| Item | Target | Status |
+|------|--------|--------|
+| World map: 1 px subpoint throttle; keep render caches across snapshot rebinds; greyline minute-only time invalidate | Fewer full map paints under load | Done in this change set |
+| Timeline: dirty-flag / ≥1 px time throttle instead of blanket 1 Hz invalidate | Fewer timeline paints | Done in this change set |
 
-## Phase 2: Medium Complexity (3-5 days each)
-**Moderate complexity with significant impact**
+## Phase B: Propagation CPU
 
-### Week 2-3
-4. **`opt/live-tracking-snapshot-pooling`**
-   - Implement array pooling for snapshots
-   - **Effort**: 1-2 days
-   - **Impact**: Medium (5-10% allocation reduction)
+| Item | Target | Status |
+|------|--------|--------|
+| Combined `GetLiveGeometry` (one `PositionEci` per sat per tick) | ~3× fewer SGP4 evals on the live path | Done in this change set |
+| Pass predictor: one look-angle per 30 s coarse step | ~2× fewer SGP4 evals on 48 h scans | Done in this change set |
+| Ground-track rebuild priority (above-horizon first) | Fresher tracks for visible sats within the 20 ms budget | Done in this change set |
 
-5. **`opt/stringbuilder-pooling`**  
-   - Pool StringBuilder across communication layers
-   - **Effort**: 2-3 days
-   - **Impact**: Medium (5-15% allocation reduction)
+## Phase C: Docs and measurement
 
-6. **`opt/trigonometric-precomputation`**
-   - Pre-compute mathematical constants
-   - **Effort**: 1-2 days
-   - **Impact**: Medium (5-15% math improvement)
+| Item | Status |
+|------|--------|
+| Refresh `optimization-branches.md` / this roadmap against merged work | Done in this change set |
+| Prefer equivalence + targeted alloc tests over large pooling frameworks | Ongoing |
 
-## Phase 3: Advanced Optimizations (1 week each)
-**Complex optimizations requiring careful design**
+## Explicitly not planned
 
-### Week 4-6
-7. **`opt/status-parsing-spans`**
-   - ReadOnlySpan optimizations for parsing
-   - **Effort**: 3-5 days
-   - **Impact**: Medium (10-15% parsing improvement)
+- Snapshot array pooling / `ArraySegment` publish buffers
+- `SatelliteTrackState` object pools
+- StringBuilder pooling across CAT transports
+- Precomputed trig tables for orbit maths
 
-8. **`opt/ground-track-scheduling`**
-   - Enhanced computation scheduling
-   - **Effort**: 4-6 days
-   - **Impact**: Medium (10-20% computation efficiency)
+## Testing notes
 
-9. **`opt/radio-command-templates`**
-   - Pre-formatted command templates
-   - **Effort**: 3-4 days
-   - **Impact**: Low-Medium (5-10% CAT improvement)
+- Property tests for world-map and sky-plot movement thresholds
+- Timeline now-line / window 1 px threshold unit tests
+- `GetLiveGeometry` equivalence vs separate look/subpoint/ECI; `SatellitePositionEciCount == 1` per combined call
+- Pass predictor coarse-sample equivalence; existing horizon-mask pass tests
+- Ground-track rebuild priority unit tests
 
-10. **`opt/elevation-profile-batching`**
-    - Batched profile computation
-    - **Effort**: 4-5 days
-    - **Impact**: Medium (5-15% profile efficiency)
+## Success criteria
 
-## Parallel Development Strategy
-
-### Independent Tracks
-- **Track A**: Memory allocations (1, 4, 5)
-- **Track B**: Mathematical calculations (2, 6) 
-- **Track C**: UI rendering (3)
-- **Track D**: String operations (7, 9)
-- **Track E**: Background computation (8, 10)
-
-### Dependencies
-- `opt/sun-position-caching` should be done early (used by multiple components)
-- `opt/stringbuilder-pooling` affects multiple areas
-- Others can be developed independently
-
-## Testing Strategy
-
-### Per-Branch Testing
-- **Unit tests**: Functional equivalence
-- **Performance benchmarks**: Before/after metrics
-- **Integration tests**: No tracking regression
-- **Memory profiling**: Allocation measurements
-
-### Combined Testing
-- **Stress testing**: Multiple optimizations together
-- **Real-world scenarios**: Active tracking sessions
-- **Regression testing**: Ensure no functionality loss
-
-## Success Criteria
-
-### Individual Branch Targets
-- Each optimization meets its performance target
-- No functional regression
-- Clean, maintainable code
-- Comprehensive test coverage
-
-### Overall Goals
-- **25-40% total allocation reduction** in hot paths
-- **20-35% CPU usage improvement** in calculations  
-- **30-50% overall tracking performance** improvement
-- **Maintain 100% tracking accuracy**
-
-## Risk Mitigation
-
-### Low Risk
-- Phases 1 optimizations (simple replacements)
-- Well-tested mathematical caching
-- Independent branch development
-
-### Medium Risk  
-- Complex scheduling algorithms
-- Multi-layer string operation changes
-- Threading and concurrency considerations
-
-### High Risk
-- Breaking functional equivalence
-- Performance regression in edge cases
-- Integration issues between optimizations
-
-## Implementation Notes
-
-1. **Start with Phase 1** for immediate impact
-2. **Measure everything** - before/after metrics essential  
-3. **One optimization per PR** for easier review
-4. **Document performance gains** in commit messages
-5. **Focus on hot paths** during active tracking sessions
+- No functional regression in az/el, footprints, pass AOS/LOS, or greyline
+- Map and timeline stay responsive with large enabled-sat sets
+- Live loop does one satellite SGP4 evaluation per sat per tick for look+subpoint+ECI

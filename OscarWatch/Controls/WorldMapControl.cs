@@ -56,6 +56,8 @@ public class WorldMapControl : ThemeAwareControl
     private Bitmap? _mapBitmap;
     private INotifyCollectionChanged? _trackStatesSource;
     private Size _lastLayoutInvalidationSize;
+    private readonly Dictionary<string, (double X, double Y)> _lastRenderedSubpoints = new();
+    private long _lastGreylineUtcMinuteTicks = long.MinValue;
 
     private Color _cachedTwilightBaseColor;
     private int _cachedTwilightBandCount;
@@ -80,8 +82,9 @@ public class WorldMapControl : ThemeAwareControl
 
     static WorldMapControl()
     {
+        // TrackStates and MapDisplayUtc are handled in OnPropertyChanged with movement /
+        // greyline-minute throttling so the live 4 Hz / 1 Hz path does not force full paints.
         AffectsRender<WorldMapControl>(
-            TrackStatesProperty,
             GroundStationProperty,
             FocusedNoradIdProperty,
             ShowFootprintMotionArrowsProperty,
@@ -89,7 +92,6 @@ public class WorldMapControl : ThemeAwareControl
             SoloFocusedSatelliteProperty,
             ShowGreylineOverlayProperty,
             ShowMultiTrackOverlayProperty,
-            MapDisplayUtcProperty,
             MapCentreLongitudeProperty);
     }
 
@@ -178,12 +180,21 @@ public class WorldMapControl : ThemeAwareControl
     {
         base.OnPropertyChanged(change);
         if (change.Property == TrackStatesProperty)
+        {
             BindTrackStatesSource(change.NewValue);
-
-        if (change.Property == MapCentreLongitudeProperty)
+            if (ShouldRenderForTrackStates())
+                InvalidateVisual();
+        }
+        else if (change.Property == MapDisplayUtcProperty)
+        {
+            if (ShouldRenderForMapDisplayUtc())
+                InvalidateVisual();
+        }
+        else if (change.Property == MapCentreLongitudeProperty)
         {
             _footprintGeometryCache.Clear();
             _groundTrackSplitCache.Clear();
+            _lastRenderedSubpoints.Clear();
         }
 
         if (change.Property == TrackStatesProperty || change.Property == FocusedNoradIdProperty)
@@ -198,7 +209,10 @@ public class WorldMapControl : ThemeAwareControl
     {
         base.OnSizeChanged(e);
         if (e.NewSize.Width > 0 && e.NewSize.Height > 0)
+        {
+            _lastRenderedSubpoints.Clear();
             InvalidateVisual();
+        }
     }
 
     private void BindTrackStatesSource(object? value)
@@ -207,10 +221,8 @@ public class WorldMapControl : ThemeAwareControl
         _trackStatesSource = value as INotifyCollectionChanged;
         if (_trackStatesSource is not null)
             _trackStatesSource.CollectionChanged += OnTrackStatesSourceChanged;
-
-        _renderCache.Clear();
-        _labelCache.Clear();
-        InvalidateVisual();
+        // Do not clear render/label caches here: LiveStates is a new array every 250 ms and
+        // brushes/FormattedText remain valid across snapshot identity changes.
     }
 
     private void UnsubscribeTrackStatesSource()
@@ -224,15 +236,16 @@ public class WorldMapControl : ThemeAwareControl
 
     private void OnTrackStatesSourceChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
-        _renderCache.Clear();
-        _labelCache.Clear();
-        InvalidateVisual();
+        if (ShouldRenderForTrackStates())
+            InvalidateVisual();
     }
 
     private void OnThemeChangedClearCache(object? sender, EventArgs e)
     {
         _renderCache.Clear();
         _labelCache.Clear();
+        _lastRenderedSubpoints.Clear();
+        _lastGreylineUtcMinuteTicks = long.MinValue;
     }
 
     private void OnLayoutUpdatedForRender(object? sender, EventArgs e)
@@ -247,7 +260,85 @@ public class WorldMapControl : ThemeAwareControl
             return;
 
         _lastLayoutInvalidationSize = new Size(w, h);
+        _lastRenderedSubpoints.Clear();
         InvalidateVisual();
+    }
+
+    private bool ShouldRenderForTrackStates()
+    {
+        var w = Bounds.Width;
+        var h = Bounds.Height;
+        if (w <= 0 || h <= 0)
+            return true;
+
+        return HasMovedBeyondThreshold(
+            TrackStates,
+            _lastRenderedSubpoints,
+            w,
+            h,
+            MapCentreLongitude);
+    }
+
+    private bool ShouldRenderForMapDisplayUtc()
+    {
+        if (!ShowGreylineOverlay)
+            return false;
+
+        var minuteTicks = FloorToUtcMinuteTicks(MapDisplayUtc);
+        return minuteTicks != _lastGreylineUtcMinuteTicks;
+    }
+
+    /// <summary>
+    /// Returns true when any satellite subpoint moved ≥ 1 px, a satellite appeared/disappeared,
+    /// or the previous cache was empty and states are non-empty.
+    /// </summary>
+    internal static bool HasMovedBeyondThreshold(
+        IReadOnlyList<SatelliteTrackState>? states,
+        Dictionary<string, (double X, double Y)> previousPositions,
+        double width,
+        double height,
+        double centreLongitudeDeg,
+        double thresholdPxSquared = 1.0)
+    {
+        if (states is null || states.Count == 0)
+            return previousPositions.Count > 0;
+
+        if (width <= 0 || height <= 0)
+            return true;
+
+        var count = 0;
+        for (var i = 0; i < states.Count; i++)
+        {
+            var state = states[i];
+            var (x, y) = EquirectangularProjection.GeoToPixel(
+                state.Subpoint.LatitudeDeg,
+                state.Subpoint.LongitudeDeg,
+                width,
+                height,
+                centreLongitudeDeg);
+            count++;
+
+            if (previousPositions.TryGetValue(state.NoradId, out var prev))
+            {
+                var dx = x - prev.X;
+                var dy = y - prev.Y;
+                if (dx * dx + dy * dy >= thresholdPxSquared)
+                    return true;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        return previousPositions.Count != count;
+    }
+
+    internal static long FloorToUtcMinuteTicks(DateTime utc)
+    {
+        var floored = new DateTime(
+            utc.Year, utc.Month, utc.Day, utc.Hour, utc.Minute, 0, DateTimeKind.Utc);
+        return floored.Ticks;
     }
 
     protected override void OnPointerPressed(PointerPressedEventArgs e)
@@ -341,7 +432,12 @@ public class WorldMapControl : ThemeAwareControl
 
         var states = TrackStates;
         if (states is null)
+        {
+            _lastRenderedSubpoints.Clear();
+            if (ShowGreylineOverlay)
+                _lastGreylineUtcMinuteTicks = FloorToUtcMinuteTicks(MapDisplayUtc);
             return;
+        }
 
         // Evict stale footprint cache entries
         if (_footprintGeometryCache.Count > 0)
@@ -534,6 +630,19 @@ public class WorldMapControl : ThemeAwareControl
         }
 
         _labelCache.Evict(states);
+
+        // Update subpoint cache after a full paint so the 1 px throttle can skip quiet ticks.
+        _lastRenderedSubpoints.Clear();
+        for (var i = 0; i < states.Count; i++)
+        {
+            var state = states[i];
+            var (sx, sy) = EquirectangularProjection.GeoToPixel(
+                state.Subpoint.LatitudeDeg, state.Subpoint.LongitudeDeg, w, h, centreLon);
+            _lastRenderedSubpoints[state.NoradId] = (sx, sy);
+        }
+
+        if (ShowGreylineOverlay)
+            _lastGreylineUtcMinuteTicks = FloorToUtcMinuteTicks(MapDisplayUtc);
     }
 
     private string? HitTestSatellite(Point pos, double w, double h)
