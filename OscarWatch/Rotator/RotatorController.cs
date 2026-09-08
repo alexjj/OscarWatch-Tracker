@@ -895,7 +895,8 @@ public sealed class RotatorController : IRotatorController, IDisposable
             var losCompass = RotatorCalibration.ApplyAzimuthOffset(
                 _activePassInfo.LosAzimuthDeg, settings);
             remainingPathCrossesNorth = losCompass is { } losAz
-                && RotatorAzimuthPlanner.IndicatesEastToWestNorthCrossing(commandAzInput, losAz);
+                && RotatorAzimuthPlanner.RemainingPathCrossesNorthEastToWest(
+                    commandAzInput, losAz, aheadForPlanner);
         }
 
         var useSmartAzimuth = settings.SmartAzimuth450 && settings.MaxAzimuthDeg > 360;

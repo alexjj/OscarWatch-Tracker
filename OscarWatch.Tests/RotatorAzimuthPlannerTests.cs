@@ -11,6 +11,17 @@ public sealed class RotatorAzimuthPlannerTests
         Assert.Equal(10, result);
     }
 
+    [Fact]
+    public void ResolveCommandAz_aos_east_of_north_commits_to_overlap_when_path_crosses_north()
+    {
+        // FO-29-class: AOS ~20°, then west through 0° to LOS ~232°. First command
+        // must be 380°, not 20°, or the mast sits on the primary stop.
+        Assert.Equal(380, RotatorAzimuthPlanner.ResolveCommandAz(
+            null, 20, 450, remainingPathCrossesNorth: true));
+        Assert.Equal(380, RotatorAzimuthPlanner.ResolveCommandAz(
+            180, 20, 450, remainingPathCrossesNorth: true));
+    }
+
     [Theory]
     [InlineData(350, 10, 450, 370)]
     [InlineData(350, 340, 450, 340)]
@@ -123,6 +134,39 @@ public sealed class RotatorAzimuthPlannerTests
     {
         var result = RotatorAzimuthPlanner.ResolveCommandAz(last, target, 450);
         Assert.Equal(expected, result);
+    }
+
+    [Theory]
+    [InlineData(20, 232, 18.0, true)]   // FO-29 westbound through north
+    [InlineData(20, 320, null, true)] // LOS already NW: wrap is unambiguous
+    [InlineData(20, 232, 25.0, false)]  // same AOS/LOS but heading east through south
+    [InlineData(80, 20, 70.0, false)]   // RS-44: LOS still east of north
+    [InlineData(20, 232, null, false)] // no lookahead: do not guess the long vs short sky path
+    public void RemainingPathCrossesNorthEastToWest_uses_direction_when_los_is_southwest(
+        double current,
+        double los,
+        double? next,
+        bool expected)
+    {
+        Assert.Equal(
+            expected,
+            RotatorAzimuthPlanner.RemainingPathCrossesNorthEastToWest(current, los, next));
+    }
+
+    [Fact]
+    public void ResolveCommandAz_fo29_westbound_sequence_stays_in_overlap_through_north()
+    {
+        double[] compass = [20, 12, 4, 350, 280, 232];
+        double? last = null;
+        double[] expected = [380, 372, 364, 350, 280, 232];
+        for (var i = 0; i < compass.Length; i++)
+        {
+            double? next = i + 1 < compass.Length ? compass[i + 1] : null;
+            var crosses = RotatorAzimuthPlanner.RemainingPathCrossesNorthEastToWest(
+                compass[i], 232, next);
+            last = RotatorAzimuthPlanner.ResolveCommandAz(last, compass[i], 450, next, crosses);
+            Assert.Equal(expected[i], last);
+        }
     }
 
     [Theory]
