@@ -2526,6 +2526,24 @@ Continuar?</value>
   <data name="Settings.Recording.OutputWatermark">
     <value>Padrão: %AppData%/OscarWatch/recordings</value>
   </data>
+  <data name="Settings.Recording.FolderUsageOne">
+    <value>1 arquivo · {0}</value>
+  </data>
+  <data name="Settings.Recording.FolderUsageMany">
+    <value>{0} arquivos · {1}</value>
+  </data>
+  <data name="Settings.Recording.FolderUsageEmpty">
+    <value>Ainda não há gravações nesta pasta</value>
+  </data>
+  <data name="Settings.Recording.FolderUsageMissing">
+    <value>A pasta será criada quando a primeira gravação for salva</value>
+  </data>
+  <data name="Settings.Recording.FolderUsageError">
+    <value>Não foi possível ler o tamanho da pasta</value>
+  </data>
+  <data name="Settings.Recording.OpenFolder">
+    <value>Abrir pasta</value>
+  </data>
   <data name="Settings.Recording.TestButton">
     <value>Testar gravação (5 s)</value>
   </data>

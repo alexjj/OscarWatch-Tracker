@@ -175,6 +175,9 @@ public partial class SettingsViewModel : ViewModelBase, IDisposable
     private string _recordingOutputFolder = "";
 
     [ObservableProperty]
+    private string _recordingFolderUsageText = "";
+
+    [ObservableProperty]
     private RecordingDeviceOption? _selectedRecordingDevice;
 
     [ObservableProperty]
@@ -1386,6 +1389,7 @@ public partial class SettingsViewModel : ViewModelBase, IDisposable
             ApplySavedRecordingDevicePlaceholder(recording.DeviceId, recording.DeviceDisplayName);
             RecordingTestStatus = "";
             RecordingFfmpegStatus = "";
+            RefreshRecordingFolderUsage();
 
             var rotator = _settings.Current.Rotator ?? new RotatorSettings();
             RotatorEnabled = rotator.Enabled;
@@ -1685,6 +1689,50 @@ public partial class SettingsViewModel : ViewModelBase, IDisposable
 
         if (folders.Count > 0)
             RecordingOutputFolder = folders[0].Path.LocalPath;
+    }
+
+    partial void OnRecordingOutputFolderChanged(string value) => RefreshRecordingFolderUsage();
+
+    [RelayCommand]
+    private void OpenRecordingOutputFolder()
+    {
+        try
+        {
+            RecordingFileNameFormat.OpenOutputFolder(RecordingOutputFolder);
+            RefreshRecordingFolderUsage();
+        }
+        catch
+        {
+            RecordingFolderUsageText = _l.Get("Settings.Recording.FolderUsageError");
+        }
+    }
+
+    private void RefreshRecordingFolderUsage()
+    {
+        try
+        {
+            var (count, bytes, exists) = RecordingFileNameFormat.MeasureUsage(RecordingOutputFolder);
+            if (!exists)
+            {
+                RecordingFolderUsageText = _l.Get("Settings.Recording.FolderUsageMissing");
+                return;
+            }
+
+            if (count == 0)
+            {
+                RecordingFolderUsageText = _l.Get("Settings.Recording.FolderUsageEmpty");
+                return;
+            }
+
+            var size = RecordingFileNameFormat.FormatByteSize(bytes);
+            RecordingFolderUsageText = count == 1
+                ? _l.Get("Settings.Recording.FolderUsageOne", size)
+                : _l.Get("Settings.Recording.FolderUsageMany", count, size);
+        }
+        catch
+        {
+            RecordingFolderUsageText = _l.Get("Settings.Recording.FolderUsageError");
+        }
     }
 
     [RelayCommand]

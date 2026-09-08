@@ -2550,6 +2550,24 @@
   <data name="Settings.Recording.OutputWatermark">
     <value>Predeterminado: %AppData%/OscarWatch/recordings</value>
   </data>
+  <data name="Settings.Recording.FolderUsageOne">
+    <value>1 archivo · {0}</value>
+  </data>
+  <data name="Settings.Recording.FolderUsageMany">
+    <value>{0} archivos · {1}</value>
+  </data>
+  <data name="Settings.Recording.FolderUsageEmpty">
+    <value>Aún no hay grabaciones en esta carpeta</value>
+  </data>
+  <data name="Settings.Recording.FolderUsageMissing">
+    <value>La carpeta se creará al guardar la primera grabación</value>
+  </data>
+  <data name="Settings.Recording.FolderUsageError">
+    <value>No se pudo leer el tamaño de la carpeta</value>
+  </data>
+  <data name="Settings.Recording.OpenFolder">
+    <value>Abrir carpeta</value>
+  </data>
   <data name="Settings.Recording.TestButton">
     <value>Probar grabación (5 s)</value>
   </data>

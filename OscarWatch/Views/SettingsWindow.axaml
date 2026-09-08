@@ -1225,6 +1225,18 @@
                       Content="{loc:Localize Key=Common.Browse}"
                       Click="OnBrowseRecordingFolderClick" />
             </Grid>
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8" Margin="0,4,0,0">
+              <TextBlock Grid.Column="0"
+                         VerticalAlignment="Center"
+                         Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                         FontSize="11"
+                         TextWrapping="Wrap"
+                         Text="{Binding RecordingFolderUsageText}" />
+              <Button Grid.Column="1"
+                      Content="{loc:Localize Key=Settings.Recording.OpenFolder}"
+                      Command="{Binding OpenRecordingOutputFolderCommand}"
+                      MinWidth="100" />
+            </Grid>
             <TextBlock Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
                        FontSize="11"
                        TextWrapping="Wrap"
