@@ -260,6 +260,7 @@ Step-by-step operator notes: [help/settings.html#ffmpeg](help/settings.html#ffmp
 | Transponder DB (user)   | `%AppData%/OscarWatch/satellite_database.json`                                                   |
 | Transponder DB (remote) | [tle.oscarwatch.org/satellite_database.json](https://tle.oscarwatch.org/satellite_database.json) |
 | Logs                    | `%AppData%/OscarWatch/logs/` (daily rolling `oscarwatch-YYYYMMDD.log`, 14 days retained)         |
+| Doppler pass CSVs       | `%AppData%/OscarWatch/doppler-logs/` (optional; CSVs older than 14 days pruned)                 |
 | OscarWatch Logbook      | `%AppData%/OscarWatch/qso_logbook.db` (local SQLite; export ADIF for backup)                     |
 
 
