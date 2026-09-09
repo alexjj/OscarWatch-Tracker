@@ -328,6 +328,8 @@ dotnet run -c Release --project OscarWatch/OscarWatch.csproj
 
 #### GitHub Actions
 
+**[CI](.github/workflows/ci.yml)** builds and tests on Ubuntu and Windows for pull requests to `main` and for pushes to `main`.
+
 **[Publish](.github/workflows/publish.yml)** runs on a version tag (`v`*) or a manual workflow dispatch. It builds and tests on Linux, then publishes installable packages per platform.
 
 **Artifacts:**

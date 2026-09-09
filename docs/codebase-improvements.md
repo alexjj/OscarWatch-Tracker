@@ -35,21 +35,15 @@ Suggested default order if you want a sequence: **settings mapping**, then **Mai
 
 ### ~~P0.1 Enforce `.resx` key parity in CI~~ Done
 
-`OscarWatch.Tests/ResxKeyParityTests.cs` copies `OscarWatch/Resources/Strings*.resx` into the test output and asserts every locale has the same `data name=` set as `Strings.resx`. `dotnet test` in `.github/workflows/ci.yml` runs it on every PR.
+`OscarWatch.Tests/ResxKeyParityTests.cs` copies `OscarWatch/Resources/Strings*.resx` into the test output and asserts every locale has the same `data name=` set as `Strings.resx`. `dotnet test` in `.github/workflows/ci.yml` runs it on every CI job.
 
 When you add a UI string: put it in `Strings.resx` first, then the same key in all four locale files in the same change.
 
-### P0.2 Widen CI beyond “Ubuntu, PRs only”
+### ~~P0.2 Widen CI beyond “Ubuntu, PRs only”~~ Done
 
-**Why:** `.github/workflows/ci.yml` builds and tests on `ubuntu-latest` for pull requests to `main`. It does not run on push to `main`, and it never compiles Windows-only paths (`System.IO.Ports`, `System.Speech`) before a release tag. Publish still validates on Linux first, then packs six RIDs.
+`.github/workflows/ci.yml` runs `dotnet build` and `dotnet test` on **Ubuntu** and **Windows** for pull requests to `main` and for pushes to `main`. That catches Windows-only compile paths (`System.IO.Ports`, `System.Speech`) before a release tag. Publish still packs six RIDs on tags.
 
-**Do:**
-
-- Trigger CI on `push` to `main` as well as pull requests.
-- Add a **Windows** job (build + test is enough; publish can stay on tags).
-- Optional later: macOS build-only, so PortAudio / `say` packaging does not wait until `publish.yml`.
-
-**Done when:** a PR that breaks Windows compile or a direct push to `main` is caught before a tag.
+Optional later: a macOS build-only CI job so PortAudio / `say` packaging does not wait until `publish.yml`.
 
 ### P0.3 Align NuGet versions and watch them
 
@@ -217,9 +211,8 @@ Hardware roadmap that is **not** a codebase-health item (keep in `TODO.md`): SPI
 
 ### This month (if doing any engineering work)
 
-1. P0.2 CI on main + Windows job
-2. P3.1 fix stale optimization-branches status
-3. P0.3 align Microsoft package versions
+1. P3.1 fix stale optimization-branches status
+2. P0.3 align Microsoft package versions
 
 ### Next time someone is already in Settings
 
