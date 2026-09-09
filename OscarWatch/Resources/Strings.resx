@@ -3136,10 +3136,28 @@ Continue?</value>
     <value>Schedule</value>
   </data>
   <data name="Planner.AddToCalendar">
-    <value>Add to Calendar</value>
+    <value>Add to calendar</value>
   </data>
   <data name="Planner.Export.CalendarTip">
+    <value>Save an iCalendar file for this satellite, or add this pass to Google Calendar</value>
+  </data>
+  <data name="Planner.Export.SaveIcs">
+    <value>Save iCalendar (.ics)</value>
+  </data>
+  <data name="Planner.Export.SaveIcsTip">
     <value>Export all passes for this satellite to an iCalendar (.ics) file</value>
+  </data>
+  <data name="Planner.Export.GoogleCalendar">
+    <value>Add this pass to Google Calendar</value>
+  </data>
+  <data name="Planner.Export.GoogleCalendarTip">
+    <value>Open Google Calendar in your browser with this pass filled in</value>
+  </data>
+  <data name="Planner.Export.GoogleCalendarOpened">
+    <value>Opened Google Calendar for {0}</value>
+  </data>
+  <data name="Planner.Export.GoogleCalendarFailed">
+    <value>Could not open Google Calendar: {0}</value>
   </data>
   <data name="Planner.PortableName">
     <value>Portable {0}</value>

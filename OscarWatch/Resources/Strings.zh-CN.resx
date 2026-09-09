@@ -3139,7 +3139,25 @@
     <value>添加到日历</value>
   </data>
   <data name="Planner.Export.CalendarTip">
+    <value>保存此卫星的 iCalendar 文件，或将此次过境添加到 Google 日历</value>
+  </data>
+  <data name="Planner.Export.SaveIcs">
+    <value>保存 iCalendar (.ics)</value>
+  </data>
+  <data name="Planner.Export.SaveIcsTip">
     <value>将此卫星的所有过境导出到 iCalendar (.ics) 文件</value>
+  </data>
+  <data name="Planner.Export.GoogleCalendar">
+    <value>将此次过境添加到 Google 日历</value>
+  </data>
+  <data name="Planner.Export.GoogleCalendarTip">
+    <value>在浏览器中打开 Google 日历并填入此次过境</value>
+  </data>
+  <data name="Planner.Export.GoogleCalendarOpened">
+    <value>已为 {0} 打开 Google 日历</value>
+  </data>
+  <data name="Planner.Export.GoogleCalendarFailed">
+    <value>无法打开 Google 日历：{0}</value>
   </data>
   <data name="Planner.PortableName">
     <value>便携式 {0}</value>

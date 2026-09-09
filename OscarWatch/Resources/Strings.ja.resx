@@ -3109,7 +3109,25 @@
     <value>カレンダーに追加</value>
   </data>
   <data name="Planner.Export.CalendarTip">
+    <value>この衛星のiCalendarファイルを保存するか、このパスをGoogleカレンダーに追加</value>
+  </data>
+  <data name="Planner.Export.SaveIcs">
+    <value>iCalendar (.ics) を保存</value>
+  </data>
+  <data name="Planner.Export.SaveIcsTip">
     <value>この衛星の全パスをiCalendar (.ics) ファイルにエクスポート</value>
+  </data>
+  <data name="Planner.Export.GoogleCalendar">
+    <value>このパスをGoogleカレンダーに追加</value>
+  </data>
+  <data name="Planner.Export.GoogleCalendarTip">
+    <value>このパスを入力した状態でブラウザーのGoogleカレンダーを開く</value>
+  </data>
+  <data name="Planner.Export.GoogleCalendarOpened">
+    <value>{0} のGoogleカレンダーを開きました</value>
+  </data>
+  <data name="Planner.Export.GoogleCalendarFailed">
+    <value>Googleカレンダーを開けませんでした: {0}</value>
   </data>
   <data name="Planner.PortableName">
     <value>ポータブル {0}</value>
