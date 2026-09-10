@@ -1411,27 +1411,15 @@ public partial class MainViewModel : ViewModelBase
         }
 
         var elevation = status.ElevationDeg ?? status.CommandedElevationDeg;
-        if (elevation is null)
+        var azimuth = ResolveSkyPlotRotatorAzimuthDeg(status, _settings.Current.Rotator.AzimuthOffsetDeg);
+        if (elevation is null || azimuth is null)
         {
             SkyPlotRotatorAzimuthDeg = null;
             SkyPlotRotatorElevationDeg = null;
             return;
         }
 
-        var settings = _settings.Current.Rotator;
-        var compassAz = status.CompassAzimuthDeg
-            ?? (status.AzimuthDeg is { } mechanical
-                ? (int)Math.Round(RotatorAzimuthPlanner.Normalize360(mechanical - settings.AzimuthOffsetDeg))
-                : status.CommandedAzimuthDeg);
-
-        if (compassAz is null)
-        {
-            SkyPlotRotatorAzimuthDeg = null;
-            SkyPlotRotatorElevationDeg = null;
-            return;
-        }
-
-        SkyPlotRotatorAzimuthDeg = compassAz.Value;
+        SkyPlotRotatorAzimuthDeg = azimuth.Value;
         SkyPlotRotatorElevationDeg = Math.Max(0, elevation.Value);
     }
 
@@ -1465,6 +1453,24 @@ public partial class MainViewModel : ViewModelBase
         var candidates = TimelinePasses
             ?? Passes.OfType<PassRowViewModel>().Select(p => p.Source).ToList();
         return FindSkyPlotPass(noradId, candidates, DateTime.UtcNow);
+    }
+
+    /// <summary>
+    /// Sky-plot rotator marker uses live polled azimuth (compass), not the commanded heading.
+    /// CompassAzimuthDeg is the target satellite bearing, set as soon as Rotate or tracking starts.
+    /// </summary>
+    internal static int? ResolveSkyPlotRotatorAzimuthDeg(RotatorPositionStatus status, double azimuthOffsetDeg)
+    {
+        if (!status.IsConnected)
+            return null;
+
+        if (status.AzimuthDeg is { } mechanical)
+            return (int)Math.Round(RotatorAzimuthPlanner.Normalize360(mechanical - azimuthOffsetDeg));
+
+        return status.CompassAzimuthDeg
+            ?? (status.CommandedAzimuthDeg is { } commanded
+                ? (int)Math.Round(RotatorAzimuthPlanner.Normalize360(commanded - azimuthOffsetDeg))
+                : null);
     }
 
     internal static string FormatRotatorAzimuthText(RotatorPositionStatus status)
