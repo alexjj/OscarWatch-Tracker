@@ -12,6 +12,7 @@ public sealed class ResxKeyParityTests
     private static readonly string[] LocaleFileNames =
     [
         "Strings.es.resx",
+        "Strings.id.resx",
         "Strings.ja.resx",
         "Strings.pt-BR.resx",
         "Strings.th.resx",

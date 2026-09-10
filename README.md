@@ -284,6 +284,7 @@ OscarWatch strings live in `.resx` files under `OscarWatch/Resources/`. **Britis
 | Chinese (Simplified) | `zh-CN` | `Strings.zh-CN.resx` |
 | Spanish | `es` | `Strings.es.resx` |
 | Thai | `th` | `Strings.th.resx` |
+| Indonesian | `id` | `Strings.id.resx` |
 
 **Using another language:** **Settings → Appearance → Language**, then restart the app.
 
