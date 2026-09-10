@@ -411,7 +411,7 @@ public sealed class PassElevationTimelineControl : ThemeAwareControl
     /// <summary>
     /// Gets cached tooltip text for a pass.
     /// </summary>
-    private string GetCachedTooltip(PassInfo pass)
+    internal string GetCachedTooltip(PassInfo pass)
     {
         if (_tooltipCacheDirty)
         {
