@@ -786,7 +786,8 @@ public partial class SettingsViewModel : ViewModelBase, IDisposable
             new LanguageOption(LocalizationCulture.JapaneseLanguage, _l.Get("Settings.Language.Japanese")),
             new LanguageOption(LocalizationCulture.PortugueseBrazilLanguage, _l.Get("Settings.Language.PortugueseBrazil")),
             new LanguageOption(LocalizationCulture.SimplifiedChineseLanguage, _l.Get("Settings.Language.SimplifiedChinese")),
-            new LanguageOption(LocalizationCulture.SpanishLanguage, _l.Get("Settings.Language.Spanish"))
+            new LanguageOption(LocalizationCulture.SpanishLanguage, _l.Get("Settings.Language.Spanish")),
+            new LanguageOption(LocalizationCulture.ThaiLanguage, _l.Get("Settings.Language.Thai"))
         ];
         TleSourceOptions =
         [

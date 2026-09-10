@@ -22,6 +22,7 @@ public sealed class LocalizationCultureTests
     [InlineData("en-GB", "en-GB")]
     [InlineData("ja", "ja")]
     [InlineData("es", "es")]
+    [InlineData("th", "th")]
     public void NormalizeLanguageCode_maps_legacy_en_to_en_GB(string? input, string expected)
     {
         Assert.Equal(expected, LocalizationCulture.NormalizeLanguageCode(input));
@@ -32,6 +33,13 @@ public sealed class LocalizationCultureTests
     {
         var culture = LocalizationCulture.ResolveCulture("es");
         Assert.Equal("es", culture.Name);
+    }
+
+    [Fact]
+    public void ResolveCulture_maps_thai_to_th()
+    {
+        var culture = LocalizationCulture.ResolveCulture("th");
+        Assert.Equal("th", culture.Name);
     }
 
     [Fact]

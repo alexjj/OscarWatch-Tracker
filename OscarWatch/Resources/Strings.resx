@@ -663,6 +663,9 @@ Continue?</value>
   <data name="Settings.Language.Spanish">
     <value>Español</value>
   </data>
+  <data name="Settings.Language.Thai">
+    <value>ไทย</value>
+  </data>
   <data name="Settings.Language.RestartNote">
     <value>You must restart OscarWatch for a language change to take effect.</value>
   </data>
