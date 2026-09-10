@@ -61,6 +61,14 @@ public sealed class LocalizationServiceTests
     }
 
     [Fact]
+    public void Get_returns_russian_when_culture_is_ru()
+    {
+        using var _ = TestUiCulture.Apply(LocalizationCulture.RussianLanguage);
+        var text = LocalizationService.Instance.Get("Menu.File");
+        Assert.Equal("_Файл", text);
+    }
+
+    [Fact]
     public void Get_returns_spanish_rotator_park_label()
     {
         using var _ = TestUiCulture.Apply(LocalizationCulture.SpanishLanguage);

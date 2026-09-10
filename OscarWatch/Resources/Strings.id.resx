@@ -673,6 +673,9 @@ Lanjutkan?</value>
   <data name="Settings.Language.Indonesian">
     <value>Bahasa Indonesia</value>
   </data>
+  <data name="Settings.Language.Russian">
+    <value>Русский</value>
+  </data>
   <data name="Settings.Language.RestartNote">
     <value>Anda harus memulai ulang OscarWatch agar perubahan bahasa berlaku.</value>
   </data>

@@ -15,6 +15,7 @@ public sealed class ResxKeyParityTests
         "Strings.id.resx",
         "Strings.ja.resx",
         "Strings.pt-BR.resx",
+        "Strings.ru.resx",
         "Strings.th.resx",
         "Strings.zh-CN.resx"
     ];
