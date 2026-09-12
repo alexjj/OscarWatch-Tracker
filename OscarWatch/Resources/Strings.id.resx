@@ -2210,7 +2210,7 @@ Lanjutkan?</value>
     <value>Aktifkan kontrol radio</value>
   </data>
   <data name="Settings.Radio.DualEnable">
-    <value>Radio ganda (downlink dan uplink terpisah: FT-817/818, FT-991(A), IC-705, IC-7300, IC-905, seri IC-706, TH-D74/D75, atau campuran)</value>
+    <value>Radio ganda (downlink dan uplink terpisah: FT-817/818, FT-991(A), IC-705, IC-7300, IC-905, IC-7100, seri IC-706, TH-D74/D75, atau campuran)</value>
   </data>
   <data name="Settings.Radio.DualIncompleteBoth">
     <value>Pilih port COM untuk radio downlink dan uplink.</value>
@@ -2389,6 +2389,9 @@ Lanjutkan?</value>
   <data name="Settings.Radio.Ic905CivHint">
     <value>Bawaan pabrik IC-905 AC. Harus cocok dengan Set mode CI-V radio.</value>
   </data>
+  <data name="Settings.Radio.Ic7100CivHint">
+    <value>Bawaan pabrik IC-7100 88H. Harus cocok dengan menu CI-V radio.</value>
+  </data>
   <data name="Settings.Radio.Ic706CivHint">
     <value>Bawaan pabrik IC-706 48H. Harus cocok dengan alamat CI-V radio (Initial Set Mode).</value>
   </data>
@@ -2412,6 +2415,9 @@ Lanjutkan?</value>
   </data>
   <data name="Settings.Radio.Ic905Hint">
     <value>IC-905: Hanya radio ganda. Samakan alamat CI-V (bawaan AC) dan baud (bawaan 115200) di Set mode. Pakai port serial USB CI-V. Satu port COM per kaki: mencakup VHF/UHF/SHF termasuk 13 cm, 6 cm, dan 3 cm.</value>
+  </data>
+  <data name="Settings.Radio.Ic7100Hint">
+    <value>IC-7100: Hanya radio ganda. Setel CI-V Output (USB) On (atau pakai jack REMOTE). Samakan alamat CI-V (bawaan 88H) dan baud (bawaan 19200) di menu CI-V radio. Satu port COM per kaki: mencakup HF/6 m, 2 m, dan 70 cm (AO-07 Mode A downlink di 10 m); 23 cm tidak didukung.</value>
   </data>
   <data name="Settings.Radio.Ic706Hint">
     <value>IC-706: CI-V lewat jack REMOTE (atau CT-17). HF/6 m dan 2m (tanpa 70cm). Setel alamat dan baud CI-V di Initial Set Mode (LOCK saat power-on) agar cocok dengan Pengaturan (bawaan 48H / 19200). CI-V TRN On disarankan. Downlink AO-07 Mode A di 10 m didukung.</value>

@@ -2206,7 +2206,7 @@
     <value>Habilitar control CAT</value>
   </data>
   <data name="Settings.Radio.DualEnable">
-    <value>Doble radio (bajada y subida separadas: FT-817/818, FT-991(A), IC-705, IC-7300, IC-905, serie IC-706, TH-D74/D75 o mixtas)</value>
+    <value>Doble radio (bajada y subida separadas: FT-817/818, FT-991(A), IC-705, IC-7300, IC-905, IC-7100, serie IC-706, TH-D74/D75 o mixtas)</value>
   </data>
   <data name="Settings.Radio.DualIncompleteBoth">
     <value>Selecciona puertos COM para las radios de bajada y subida.</value>
@@ -2385,6 +2385,9 @@
   <data name="Settings.Radio.Ic905CivHint">
     <value>IC-905 predeterminado de fábrica AC. Debe coincidir con el modo Set CI-V de la radio.</value>
   </data>
+  <data name="Settings.Radio.Ic7100CivHint">
+    <value>IC-7100 predeterminado de fábrica 88H. Debe coincidir con el menú CI-V de la radio.</value>
+  </data>
   <data name="Settings.Radio.Ic706CivHint">
     <value>IC-706 predeterminado de fábrica 48H. Debe coincidir con la dirección CI-V de la radio (Initial Set Mode).</value>
   </data>
@@ -2408,6 +2411,9 @@
   </data>
   <data name="Settings.Radio.Ic905Hint">
     <value>IC-905: Solo doble radio. Iguala la dirección CI-V (predeterminado AC) y el baud (predeterminado 115200) en el modo Set. Usa el puerto serie USB CI-V. Un COM por tramo — cubre VHF/UHF/SHF incluyendo 13 cm, 6 cm y 3 cm.</value>
+  </data>
+  <data name="Settings.Radio.Ic7100Hint">
+    <value>IC-7100: Solo doble radio. Activa CI-V Output (USB) (o usa el conector REMOTE). Iguala la dirección CI-V (predeterminado 88H) y el baud (predeterminado 19200) en el menú CI-V. Un COM por tramo: cubre HF/6 m, 2 m y 70 cm (AO-07 Modo A en bajada en 10 m); 23 cm no está soportado.</value>
   </data>
   <data name="Settings.Radio.Ic706Hint">
     <value>IC-706: CI-V por la toma REMOTE (o CT-17). HF/6 m y 2 m (sin 70 cm). Configura dirección y velocidad CI-V en Initial Set Mode (LOCK al encender) para que coincida con Configuración (predeterminado 48H / 19200). CI-V TRN On recomendado. Bajada AO-07 Modo A en 10 m compatible.</value>

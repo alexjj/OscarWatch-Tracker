@@ -2210,7 +2210,7 @@ Fortfahren?</value>
     <value>Funkgerätsteuerung aktivieren</value>
   </data>
   <data name="Settings.Radio.DualEnable">
-    <value>Dual-Funkgerät (getrennter Downlink und Uplink: FT-817/818, FT-991(A), IC-705, IC-7300, IC-905, IC-706-Serie, TH-D74/D75 oder gemischt)</value>
+    <value>Dual-Funkgerät (getrennter Downlink und Uplink: FT-817/818, FT-991(A), IC-705, IC-7300, IC-905, IC-7100, IC-706-Serie, TH-D74/D75 oder gemischt)</value>
   </data>
   <data name="Settings.Radio.DualIncompleteBoth">
     <value>COM-Ports für Downlink- und Uplink-Funkgerät auswählen.</value>
@@ -2389,6 +2389,9 @@ Fortfahren?</value>
   <data name="Settings.Radio.Ic905CivHint">
     <value>IC-905 Werksvorgabe AC. Muss mit dem CI-V Set-Modus des Funkgeräts übereinstimmen.</value>
   </data>
+  <data name="Settings.Radio.Ic7100CivHint">
+    <value>IC-7100 Werksvorgabe 88H. Muss mit dem CI-V-Menü des Funkgeräts übereinstimmen.</value>
+  </data>
   <data name="Settings.Radio.Ic706CivHint">
     <value>IC-706 Werksvorgabe 48H. Muss mit der CI-V-Adresse des Funkgeräts übereinstimmen (Initial Set Mode).</value>
   </data>
@@ -2412,6 +2415,9 @@ Fortfahren?</value>
   </data>
   <data name="Settings.Radio.Ic905Hint">
     <value>IC-905: nur Dual-Funkgerät. CI-V-Adresse (Standard AC) und Baud (Standard 115200) im Set-Modus abgleichen. USB-CI-V-Seriellport nutzen. Ein COM-Port pro Strecke: deckt VHF/UHF/SHF einschließlich 13 cm, 6 cm und 3 cm ab.</value>
+  </data>
+  <data name="Settings.Radio.Ic7100Hint">
+    <value>IC-7100: nur Dual-Funkgerät. CI-V Output (USB) auf On stellen (oder REMOTE-Buchse nutzen). CI-V-Adresse (Standard 88H) und Baud (Standard 19200) im CI-V-Menü des Funkgeräts abgleichen. Ein COM-Port pro Strecke: KW/6 m, 2 m und 70 cm (AO-07 Mode A Downlink auf 10 m); 23 cm wird nicht unterstützt.</value>
   </data>
   <data name="Settings.Radio.Ic706Hint">
     <value>IC-706: CI-V über die REMOTE-Buchse (oder CT-17). KW/6 m und 2 m (kein 70 cm). CI-V-Adresse und Baud im Initial Set Mode (LOCK beim Einschalten) an die Einstellungen anpassen (Standard 48H / 19200). CI-V TRN On empfohlen. AO-07 Mode A Downlink auf 10 m wird unterstützt.</value>

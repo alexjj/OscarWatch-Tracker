@@ -2210,7 +2210,7 @@ LOS: {2}
     <value>Включить управление рацией</value>
   </data>
   <data name="Settings.Radio.DualEnable">
-    <value>Двойная рация (отдельные даунлинк и аплинк: FT-817/818, FT-991(A), IC-705, IC-7300, IC-905, серия IC-706, TH-D74/D75 или смешанные)</value>
+    <value>Двойная рация (отдельные даунлинк и аплинк: FT-817/818, FT-991(A), IC-705, IC-7300, IC-905, IC-7100, серия IC-706, TH-D74/D75 или смешанные)</value>
   </data>
   <data name="Settings.Radio.DualIncompleteBoth">
     <value>Выберите COM-порты и для даунлинка, и для аплинка.</value>
@@ -2389,6 +2389,9 @@ LOS: {2}
   <data name="Settings.Radio.Ic905CivHint">
     <value>IC-905 заводской адрес AC. Должен совпадать с Set mode CI-V рации.</value>
   </data>
+  <data name="Settings.Radio.Ic7100CivHint">
+    <value>IC-7100 заводской адрес 88H. Должен совпадать с меню CI-V рации.</value>
+  </data>
   <data name="Settings.Radio.Ic706CivHint">
     <value>IC-706 заводской адрес 48H. Должен совпадать с адресом CI-V рации (Initial Set Mode).</value>
   </data>
@@ -2412,6 +2415,9 @@ LOS: {2}
   </data>
   <data name="Settings.Radio.Ic905Hint">
     <value>IC-905: только двойная рация. Совпадите адрес CI-V (по умолчанию AC) и скорость (по умолчанию 115200) в Set mode. Используйте последовательный порт USB CI-V. Один COM на ветвь: УКВ/ДМВ/СВЧ, включая 13 см, 6 см и 3 см.</value>
+  </data>
+  <data name="Settings.Radio.Ic7100Hint">
+    <value>IC-7100: только двойная рация. Включите CI-V Output (USB) (или используйте разъём REMOTE). Совпадите адрес CI-V (по умолчанию 88H) и скорость (по умолчанию 19200) в меню CI-V. Один COM на ветвь: КВ/6 м, 2 м и 70 см (AO-07 Mode A даунлинк на 10 м); 23 см не поддерживается.</value>
   </data>
   <data name="Settings.Radio.Ic706Hint">
     <value>IC-706: CI-V через разъём REMOTE (или CT-17). КВ/6 м и 2 м (без 70 см). Задайте адрес и скорость CI-V в Initial Set Mode (LOCK при включении), чтобы совпали с настройками (по умолчанию 48H / 19200). Рекомендуется CI-V TRN On. Даунлинк AO-07 Mode A на 10 м поддерживается.</value>

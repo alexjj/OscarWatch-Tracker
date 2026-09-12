@@ -1345,7 +1345,7 @@
     <value>無線機制御を有効</value>
   </data>
   <data name="Settings.Radio.DualEnable">
-    <value>デュアル無線機（ダウン/アップリンク別: FT-817/818、FT-991(A)、IC-705、IC-7300、IC-905、IC-706シリーズ、TH-D74/D75、または混合）</value>
+    <value>デュアル無線機（ダウン/アップリンク別: FT-817/818、FT-991(A)、IC-705、IC-7300、IC-905、IC-7100、IC-706シリーズ、TH-D74/D75、または混合）</value>
   </data>
   <data name="Settings.Radio.DualIncompleteBoth">
     <value>ダウンリンクとアップリンクの両方の無線機にCOMポートを選択してください。</value>
@@ -1527,6 +1527,9 @@
   <data name="Settings.Radio.Ic905CivHint">
     <value>IC-905 工場出荷 AC。無線機のCI-V設定と一致させてください。</value>
   </data>
+  <data name="Settings.Radio.Ic7100CivHint">
+    <value>IC-7100 工場出荷 88H。無線機のCI-Vメニューと一致させてください。</value>
+  </data>
   <data name="Settings.Radio.Ic706CivHint">
     <value>IC-706 工場出荷 48H。Initial Set Mode の CI-V アドレスと一致させてください。</value>
   </data>
@@ -1550,6 +1553,9 @@
   </data>
   <data name="Settings.Radio.Ic905Hint">
     <value>IC-905: デュアル無線機専用。CI-Vアドレス（既定AC）とボーレート（既定115200）を設定モードで一致させてください。USB CI-Vシリアルポートを使用。レッグごとに1 COM — VHF/UHF/SHF（13cm、6cm、3cm含む）。</value>
+  </data>
+  <data name="Settings.Radio.Ic7100Hint">
+    <value>IC-7100: デュアル無線機専用。CI-V Output (USB) を On（またはREMOTE端子）にしてください。CI-Vアドレス（既定88H）とボーレート（既定19200）をCI-Vメニューで一致させてください。レッグごとに1 COM: HF/6m、2m、70cm（AO-07 Mode A ダウンリンクは10m）；23cmは非対応。</value>
   </data>
   <data name="Settings.Radio.Ic706Hint">
     <value>IC-706: REMOTE端子（またはCT-17）経由のCI-V。HF/6mと2m（70cm非対応）。Initial Set Mode（電源投入時LOCK）でアドレス/ボーレートを設定と一致（既定48H/19200）。CI-V TRN On推奨。AO-07 Mode Aの10mダウンリンク対応。</value>

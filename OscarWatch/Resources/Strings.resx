@@ -2206,7 +2206,7 @@ Continue?</value>
     <value>Enable radio control</value>
   </data>
   <data name="Settings.Radio.DualEnable">
-    <value>Dual radio (separate downlink and uplink: FT-817/818, FT-991(A), IC-705, IC-7300, IC-905, IC-706 series, TH-D74/D75, or mixed)</value>
+    <value>Dual radio (separate downlink and uplink: FT-817/818, FT-991(A), IC-705, IC-7300, IC-905, IC-7100, IC-706 series, TH-D74/D75, or mixed)</value>
   </data>
   <data name="Settings.Radio.DualIncompleteBoth">
     <value>Select COM ports for both downlink and uplink radios.</value>
@@ -2385,6 +2385,9 @@ Continue?</value>
   <data name="Settings.Radio.Ic905CivHint">
     <value>IC-905 factory default AC. Must match the radio CI-V Set mode.</value>
   </data>
+  <data name="Settings.Radio.Ic7100CivHint">
+    <value>IC-7100 factory default 88H. Must match the radio CI-V menu.</value>
+  </data>
   <data name="Settings.Radio.Ic706CivHint">
     <value>IC-706 factory default 48H. Must match the radio CI-V address (Initial Set Mode).</value>
   </data>
@@ -2408,6 +2411,9 @@ Continue?</value>
   </data>
   <data name="Settings.Radio.Ic905Hint">
     <value>IC-905: Dual radio only. Match CI-V address (default AC) and baud (default 115200) in Set mode. Use the USB CI-V serial port. One COM port per leg — covers VHF/UHF/SHF including 13 cm, 6 cm, and 3 cm.</value>
+  </data>
+  <data name="Settings.Radio.Ic7100Hint">
+    <value>IC-7100: Dual radio only. Set CI-V Output (USB) On (or use the REMOTE jack). Match CI-V address (default 88H) and baud (default 19200) in the radio CI-V menu. One COM port per leg: covers HF/6 m, 2 m, and 70 cm (AO-07 Mode A downlink on 10 m); 23 cm satellites are not supported.</value>
   </data>
   <data name="Settings.Radio.Ic706Hint">
     <value>IC-706: CI-V via the REMOTE jack (or CT-17). HF/6 m and 2m (no 70cm). Set CI-V address and baud in Initial Set Mode (LOCK at power-on) to match Settings (default 48H / 19200). CI-V TRN On recommended. AO-07 Mode A downlink on 10 m is supported.</value>

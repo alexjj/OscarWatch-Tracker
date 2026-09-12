@@ -594,7 +594,7 @@
                   <StackPanel Spacing="4" IsVisible="{Binding ShowDownlinkCivAddress}">
                     <TextBlock Text="{loc:Localize Key=Settings.Radio.CivAddress}" />
                     <TextBox Text="{Binding DownlinkCivAddress, Mode=TwoWay}"
-                             Watermark="A4 / 94 / AC / 48 / 4C / 58" />
+                             Watermark="A4 / 94 / AC / 88 / 48 / 4C / 58" />
                     <TextBlock Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
                                FontSize="11"
                                TextWrapping="Wrap"
@@ -610,6 +610,11 @@
                                TextWrapping="Wrap"
                                IsVisible="{Binding ShowDownlinkIc905CivHint}"
                                Text="{loc:Localize Key=Settings.Radio.Ic905CivHint}" />
+                    <TextBlock Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                               FontSize="11"
+                               TextWrapping="Wrap"
+                               IsVisible="{Binding ShowDownlinkIc7100CivHint}"
+                               Text="{loc:Localize Key=Settings.Radio.Ic7100CivHint}" />
                     <TextBlock Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
                                FontSize="11"
                                TextWrapping="Wrap"
@@ -705,7 +710,7 @@
                     <StackPanel Spacing="4" IsVisible="{Binding ShowUplinkCivAddress}">
                       <TextBlock Text="{loc:Localize Key=Settings.Radio.CivAddress}" />
                       <TextBox Text="{Binding UplinkCivAddress, Mode=TwoWay}"
-                               Watermark="A4 / 94 / AC / 48 / 4C / 58" />
+                               Watermark="A4 / 94 / AC / 88 / 48 / 4C / 58" />
                       <TextBlock Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
                                  FontSize="11"
                                  TextWrapping="Wrap"
@@ -721,6 +726,11 @@
                                  TextWrapping="Wrap"
                                  IsVisible="{Binding ShowUplinkIc905CivHint}"
                                  Text="{loc:Localize Key=Settings.Radio.Ic905CivHint}" />
+                      <TextBlock Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                                 FontSize="11"
+                                 TextWrapping="Wrap"
+                                 IsVisible="{Binding ShowUplinkIc7100CivHint}"
+                                 Text="{loc:Localize Key=Settings.Radio.Ic7100CivHint}" />
                       <TextBlock Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
                                  FontSize="11"
                                  TextWrapping="Wrap"
@@ -779,6 +789,11 @@
                        TextWrapping="Wrap"
                        IsVisible="{Binding ShowRigIc905CatHint}"
                        Text="{loc:Localize Key=Settings.Radio.Ic905Hint}" />
+            <TextBlock Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                       FontSize="11"
+                       TextWrapping="Wrap"
+                       IsVisible="{Binding ShowRigIc7100CatHint}"
+                       Text="{loc:Localize Key=Settings.Radio.Ic7100Hint}" />
             <TextBlock Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
                        FontSize="11"
                        TextWrapping="Wrap"

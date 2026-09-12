@@ -2210,7 +2210,7 @@ LOS: {2}
     <value>เปิดการควบคุมวิทยุ</value>
   </data>
   <data name="Settings.Radio.DualEnable">
-    <value>วิทยุคู่ (ดาวน์ลิงก์และอัปลิงก์แยก: FT-817/818, FT-991(A), IC-705, IC-7300, IC-905, ชุด IC-706, TH-D74/D75 หรือผสม)</value>
+    <value>วิทยุคู่ (ดาวน์ลิงก์และอัปลิงก์แยก: FT-817/818, FT-991(A), IC-705, IC-7300, IC-905, IC-7100, ชุด IC-706, TH-D74/D75 หรือผสม)</value>
   </data>
   <data name="Settings.Radio.DualIncompleteBoth">
     <value>เลือกพอร์ต COM สำหรับทั้งวิทยุดาวน์ลิงก์และอัปลิงก์</value>
@@ -2389,6 +2389,9 @@ LOS: {2}
   <data name="Settings.Radio.Ic905CivHint">
     <value>IC-905 ค่าโรงงานเริ่มต้น AC ต้องตรงกับโหมด Set ของ CI-V บนวิทยุ</value>
   </data>
+  <data name="Settings.Radio.Ic7100CivHint">
+    <value>IC-7100 ค่าโรงงานเริ่มต้น 88H ต้องตรงกับเมนู CI-V ของวิทยุ</value>
+  </data>
   <data name="Settings.Radio.Ic706CivHint">
     <value>IC-706 ค่าโรงงานเริ่มต้น 48H ต้องตรงกับที่อยู่ CI-V ของวิทยุ (Initial Set Mode)</value>
   </data>
@@ -2412,6 +2415,9 @@ LOS: {2}
   </data>
   <data name="Settings.Radio.Ic905Hint">
     <value>IC-905: วิทยุคู่เท่านั้น ให้ที่อยู่ CI-V (ค่าเริ่มต้น AC) และบอด (ค่าเริ่มต้น 115200) ตรงกับโหมด Set ใช้พอร์ตอนุกรม USB CI-V หนึ่งพอร์ต COM ต่อขา: ครอบคลุม VHF/UHF/SHF รวม 13 ซม., 6 ซม. และ 3 ซม.</value>
+  </data>
+  <data name="Settings.Radio.Ic7100Hint">
+    <value>IC-7100: วิทยุคู่เท่านั้น ตั้ง CI-V Output (USB) เป็น On (หรือใช้แจ็ค REMOTE) ให้ที่อยู่ CI-V (ค่าเริ่มต้น 88H) และบอด (ค่าเริ่มต้น 19200) ตรงกับเมนู CI-V หนึ่งพอร์ต COM ต่อขา: ครอบคลุม HF/6 ม., 2 ม. และ 70 ซม. (AO-07 Mode A ดาวน์ลิงก์ที่ 10 ม.); ไม่รองรับ 23 ซม.</value>
   </data>
   <data name="Settings.Radio.Ic706Hint">
     <value>IC-706: CI-V ผ่านแจ็ค REMOTE (หรือ CT-17) HF/6 ม. และ 2ม. (ไม่มี 70ซม.) ตั้งที่อยู่ CI-V และบอดใน Initial Set Mode (LOCK เมื่อเปิดเครื่อง) ให้ตรงกับการตั้งค่า (ค่าเริ่มต้น 48H / 19200) แนะนำ CI-V TRN On รองรับดาวน์ลิงก์ AO-07 Mode A บน 10 ม.</value>
